@@ -15,7 +15,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const MyHomePage(title: '앱 상단 텍스트 변경'),
+      home: const MyHomePage(title: '조선대학교'),
     );
   }
 }
@@ -47,24 +47,90 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        bottomNavigationBar: BottomNavigationBar(
-          items: const [
-            BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
-            BottomNavigationBarItem(
-                icon: Icon(Icons.notifications_outlined), label: 'Noti'),
-            BottomNavigationBarItem(icon: Icon(Icons.person), label: 'MyPage')
-          ],
-          onTap: _onItemTapped,
-          currentIndex: _selectedIndex,
-        ),
         appBar: AppBar(
-          title: Text(widget.title),
+          title: Center(child: Text(widget.title)),
         ),
-        body: Center(
-          child: _widgets.elementAt(_selectedIndex),
+        body: ListView(
+          children: [
+            Image.asset(
+              width: double.infinity,
+              height: 400,
+              'assets/chosun.png',
+              fit: BoxFit.fill,
+            ),
+            ListTile(
+              title: Text(
+                  style: TextStyle(
+                    fontSize: 20,
+                    fontWeight: FontWeight.bold,
+                  ),
+                  '조선대학교 본관'),
+              subtitle: Text('주소'),
+              trailing: TextButton.icon(
+                  onPressed: null,
+                  icon: Icon(
+                    Icons.star,
+                    color: Colors.red,
+                  ),
+                  label: Text("41")),
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Container(
+                  padding: const EdgeInsets.all(8.0),
+                  margin: const EdgeInsets.symmetric(horizontal: 40.0),
+                  child: Column(
+                    children: [
+                      Icon(
+                        Icons.phone,
+                        color: Colors.blue,
+                      ),
+                      Text("전화")
+                    ],
+                  ),
+                ),
+                Container(
+                  padding: const EdgeInsets.all(8.0),
+                  margin: const EdgeInsets.symmetric(horizontal: 40.0),
+                  child: Column(
+                    children: [
+                      Icon(
+                        Icons.map,
+                        color: Colors.blue,
+                      ),
+                      Text("길찾기")
+                    ],
+                  ),
+                ),
+                Container(
+                  padding: const EdgeInsets.all(8.0),
+                  margin: const EdgeInsets.symmetric(horizontal: 40.0),
+                  child: Column(
+                    children: [
+                      Icon(
+                        Icons.share,
+                        color: Colors.blue,
+                      ),
+                      Text("공유")
+                    ],
+                  ),
+                )
+              ],
+            ),
+            Padding(
+              padding: const EdgeInsets.all(12.0),
+              child: Text(
+                  style: TextStyle(fontSize: 18),
+                  "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum. Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of de Finibus Bonorum et Malorum (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, Lorem ipsum dolor sit amet.., comes from a line in section 1.10.32."),
+            )
+          ],
         ));
   }
 }
+
+// 3개, 위젯 그리기, 저번주 이번주에 배웠던 거, 비슷하게 그리면 됨
+// 조선대 예제에서 사용된 위젯 위주로. 조선대 예제처럼 나옴
 
 /*
 Widget build(BuildContext context) {
